@@ -1,7 +1,7 @@
-var i2c = require('i2c');
 
 module.exports = function(_callback) {
 
+	var i2c = require('i2c');
 	var address = 0x68;
 	var wire = new i2c(address, {device: '/dev/i2c-1'});
 

@@ -7,10 +7,6 @@ module.exports = function (app) {
 
 router.get('/', function (req, res, next) {
 
-	require('./config/accelerator')(function(pPos){
-		console.log(pPos);
-	});
-
     res.render('index');
 
 });

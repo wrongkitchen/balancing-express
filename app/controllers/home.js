@@ -1,6 +1,5 @@
 var express = require('express'),
-  router = express.Router(),
-  Article = require('../models/article');
+  router = express.Router();
 
 module.exports = function (app) {
   app.use('/', router);
@@ -8,9 +7,10 @@ module.exports = function (app) {
 
 router.get('/', function (req, res, next) {
 
-  var articles = [new Article(), new Article()];
-    res.render('index', {
-      title: 'Generator-Express MVC',
-      articles: articles
-    });
+	require('./config/accelerator')(function(pPos){
+		console.log(pPos);
+	});
+
+    res.render('index');
+
 });

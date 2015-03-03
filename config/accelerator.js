@@ -1,9 +1,7 @@
+module.exports = function(_i2c, _callback) {
 
-module.exports = function(_callback) {
-
-	var i2c = require('i2c');
 	var address = 0x68;
-	var wire = new i2c(address, {device: '/dev/i2c-1'});
+	var wire = new _i2c(address, {device: '/dev/i2c-1'});
 
 	var getPosition = function(pCallback){
 		var x = null, y = null, z = null;

@@ -2,7 +2,8 @@ doctype html
 html(lang='en')
 	head
 		meta(charset='UTF-8')
-		meta(name='viewport', content='width=device-width')
+		meta(name='viewport', content='width=device-width,user-scalable = no')
+		meta(name='apple-mobile-web-app-capable', content='yes')
 		title= title
 		block css
 			link(rel='stylesheet', href='/css/style.css')
@@ -13,6 +14,10 @@ html(lang='en')
 			block content
 
 		script(src='/components/jquery/dist/jquery.min.js')
+		script(src='/components/underscore/underscore-min.js')
+		script(src='/components/backbone/backbone.js')
 		script(src='/components/socket.io-client/socket.io.js')
+		script(src='/js/jquery.countdown.package-2.0.2/jquery.plugin.min.js')
+		script(src='/js/jquery.countdown.package-2.0.2/jquery.countdown.min.js')
+		script(src='/js/SectionManager.js')
 		script(src='/js/main.js')
-

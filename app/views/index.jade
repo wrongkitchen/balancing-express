@@ -1,6 +1,37 @@
 extends layout
 
 block content
-	div.mainTitle
-	div.content
-		a(href="javascript:void(0)" onclick="startTheGame()") Start the game
+	div.section.intro.active
+		img#introImage(src="/img/giftest1.gif", alt="")
+		//- video#introVideo(width="100%", height="100%", autoplay, loop)
+		//- 	source(src="/asset/vid-idle2.mp4", type="video/mp4")
+	
+	div.section.ready
+		div.readyTxt
+		div.readyCountdown
+		div.readyBottom
+
+	div.section.game
+		div.mainTitle
+		div.gameCountdown
+		div.content
+			div.contains
+				div.rig.level1
+					div.contains
+						div.level1_bg
+						div.level2_bg
+						div.level3_bg
+						div.level4_bg
+
+	div.section.result
+		div.scoreContain
+			div.level.level1
+			div.score
+	
+	script#imageLayout(type="text/template").
+		<div class="timer">
+			<span class="image image{s10}"></span> 
+			<span class="image image{s1}"></span> 
+		</div>
+	script#readyCountdownLayout(type="text/template"). 
+		<span class="image image{s1}"></span> 

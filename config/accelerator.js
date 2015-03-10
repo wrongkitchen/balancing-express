@@ -1,7 +1,9 @@
-module.exports = function(_i2c, _callback) {
+var i2c = require('i2c');
+
+module.exports = function(_callback) {
 
 	var address = 0x68;
-	var wire = new _i2c(address, {device: '/dev/i2c-1'});
+	var wire = new i2c(address, {device: '/dev/i2c-1'});
 
 	var getPosition = function(pCallback){
 		var x = null, y = null, z = null;
@@ -58,13 +60,18 @@ module.exports = function(_i2c, _callback) {
 		});
 	};
 
-	wire.writeByte(0x6b, function(err){
-		getPosition(function(pPos){
-			if(_callback) 
-				_callback(pPos)
-			else 
-				console.log(pPos);
-		});
-	});
+	return {
+		'getPosition': getPosition,
+		'address': address
+	}
+
+	// wire.writeByte(0x6b, function(err){
+	// 	getPosition(function(pPos){
+	// 		if(_callback) 
+	// 			_callback(pPos)
+	// 		else 
+	// 			console.log(pPos);
+	// 	});
+	// });
 
 };

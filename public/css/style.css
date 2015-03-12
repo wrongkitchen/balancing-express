@@ -14,6 +14,9 @@ body {
   margin: 0 auto;
   overflow: hidden; }
 
+.clearfloat {
+  clear: both; }
+
 .section {
   display: none;
   width: 100%;
@@ -41,6 +44,92 @@ body {
     background-image: url(../img/ready-bg.png);
     background-position: center center;
     background-repeat: no-repeat; }
+  .section.intro {
+    position: relative;
+    background-image: url(../img/balancing-intro-bg.png);
+    background-repeat: no-repeat;
+    background-position: center bottom; }
+    .section.intro .scene_number, .section.intro .sceneWrapper {
+      -webkit-transition: left 500ms ease-in-out;
+      -moz-transition: left 500ms ease-in-out;
+      -ms-transition: left 500ms ease-in-out;
+      -o-transition: left 500ms ease-in-out;
+      transition: left 500ms ease-in-out; }
+    .section.intro .scene_number {
+      position: absolute;
+      top: 300px;
+      left: 260px; }
+      .section.intro .scene_number .number {
+        display: inline-block;
+        width: 45px;
+        height: 72px;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        margin-right: 40px; }
+        .section.intro .scene_number .number:last-child {
+          margin: 0; }
+    .section.intro .sceneWrapper {
+      width: 400%;
+      position: absolute;
+      top: 370px; }
+      .section.intro .sceneWrapper .container {
+        position: relative; }
+      .section.intro .sceneWrapper .scene {
+        float: left;
+        width: 600px;
+        text-align: center; }
+      .section.intro .sceneWrapper .scene_1 {
+        padding-top: 125px; }
+      .section.intro .sceneWrapper .scene_2, .section.intro .sceneWrapper .scene_3, .section.intro .sceneWrapper .scene_4 {
+        padding-top: 60px; }
+    .section.intro.active_scene1 .scene_number .number.number_1 {
+      background-image: url(../img/intro-number/number_1_active.png); }
+    .section.intro.active_scene1 .scene_number .number.number_2 {
+      background-image: url(../img/intro-number/number_2.png); }
+    .section.intro.active_scene1 .scene_number .number.number_3 {
+      background-image: url(../img/intro-number/number_3.png); }
+    .section.intro.active_scene1 .scene_number .number.number_4 {
+      background-image: url(../img/intro-number/number_4.png); }
+    .section.intro.active_scene1 .scene_number {
+      left: 260px; }
+    .section.intro.active_scene1 .sceneWrapper {
+      left: 0; }
+    .section.intro.active_scene2 .scene_number .number.number_1 {
+      background-image: url(../img/intro-number/number_1.png); }
+    .section.intro.active_scene2 .scene_number .number.number_2 {
+      background-image: url(../img/intro-number/number_2_active.png); }
+    .section.intro.active_scene2 .scene_number .number.number_3 {
+      background-image: url(../img/intro-number/number_3.png); }
+    .section.intro.active_scene2 .scene_number .number.number_4 {
+      background-image: url(../img/intro-number/number_4.png); }
+    .section.intro.active_scene2 .scene_number {
+      left: 200px; }
+    .section.intro.active_scene2 .sceneWrapper {
+      left: -600px; }
+    .section.intro.active_scene3 .scene_number .number.number_1 {
+      background-image: url(../img/intro-number/number_1.png); }
+    .section.intro.active_scene3 .scene_number .number.number_2 {
+      background-image: url(../img/intro-number/number_2.png); }
+    .section.intro.active_scene3 .scene_number .number.number_3 {
+      background-image: url(../img/intro-number/number_3_active.png); }
+    .section.intro.active_scene3 .scene_number .number.number_4 {
+      background-image: url(../img/intro-number/number_4.png); }
+    .section.intro.active_scene3 .scene_number {
+      left: 110px; }
+    .section.intro.active_scene3 .sceneWrapper {
+      left: -1200px; }
+    .section.intro.active_scene4 .scene_number .number.number_1 {
+      background-image: url(../img/intro-number/number_1.png); }
+    .section.intro.active_scene4 .scene_number .number.number_2 {
+      background-image: url(../img/intro-number/number_2.png); }
+    .section.intro.active_scene4 .scene_number .number.number_3 {
+      background-image: url(../img/intro-number/number_3.png); }
+    .section.intro.active_scene4 .scene_number .number.number_4 {
+      background-image: url(../img/intro-number/number_4_active.png); }
+    .section.intro.active_scene4 .scene_number {
+      left: 30px; }
+    .section.intro.active_scene4 .sceneWrapper {
+      left: -1800px; }
   .section.game {
     position: relative; }
     .section.game .contains {

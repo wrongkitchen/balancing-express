@@ -3,12 +3,15 @@ var SectionBase;
 var ReadyBase;
 var GameBase;
 var ResultBase;
+var introBase;
 (function($){
 
     // Section Manager
     SectionManager = Backbone.Model.extend({
         initialize: function(options){
             this.active = options.active;
+            if(this.active == "intro") 
+                this.get('sections')['intro'].startScene();
         },
         changeSection: function(pTargetSection, pCallback){
             var _this = this;
@@ -114,6 +117,33 @@ var ResultBase;
             var _el = _this.get('el');
             _el.find('.scoreContain').animate({ top:"207px" });
             SectionBase.prototype.fadeIn.call(_this, pCallback);
+        }
+    });
+
+    // introBase Base
+    introBase = SectionBase.extend({
+        sceneInterval: null,
+        currentScene: 0,
+        fadeOut: function(pCallback){
+            this.endScene();
+            SectionBase.prototype.fadeOut.call(_this, pCallback);
+        },
+        fadeIn: function(pCallback){
+            this.startScene();
+            SectionBase.prototype.fadeIn.call(_this, pCallback);
+        },
+        startScene: function(){
+            var _this = this;
+            var _el = _this.get('el');
+            _this.sceneInterval = setInterval(function(){
+                _el.removeClass('active_scene1 active_scene2 active_scene3 active_scene4');
+                _el.addClass('active_scene' + ((_this.currentScene % $('.intro .scene').length) + 1));
+                _this.currentScene += 1;
+            }, 4000);
+        },
+        endScene: function(){
+            clearInterval(this.sceneInterval);
+            this.currentScene = 0;
         }
     });
 

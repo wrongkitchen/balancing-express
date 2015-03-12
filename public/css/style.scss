@@ -3,6 +3,7 @@ body { margin:0; padding:0; background: #000; width:100%; height:100%; overflow:
 	width:600px; height:1024px; background-image:url(../img/balancing-bg.jpg); position:relative; margin:0 auto; 
 	overflow: hidden;
 }
+.clearfloat{ clear:both; }
 .section{ 
 	display:none; width:100%; height:100%; position:relative;
 	&.active{ display:block; }
@@ -18,6 +19,65 @@ body { margin:0; padding:0; background: #000; width:100%; height:100%; overflow:
 			background-image: url(../img/ready-bg.png); 
 			background-position: center center; 
 			background-repeat: no-repeat;
+		}
+	}
+	&.intro{
+		position:relative;
+		background-image: url(../img/balancing-intro-bg.png); background-repeat: no-repeat;
+		background-position: center bottom;
+		.scene_number, .sceneWrapper{
+			-webkit-transition: left 500ms ease-in-out;
+			-moz-transition: left 500ms ease-in-out;
+			-ms-transition: left 500ms ease-in-out;
+			-o-transition: left 500ms ease-in-out;
+			transition: left 500ms ease-in-out;
+		}
+		.scene_number{
+			position:absolute; top: 300px; left:260px;
+			.number{ 
+				display:inline-block; width:45px; height:72px; background-position: center bottom; 
+				background-repeat: no-repeat; margin-right:40px;
+				&:last-child{ margin:0; }
+			}
+		}
+		.sceneWrapper{ 
+			width:400%; position:absolute; top:370px;
+			.container{ position:relative }
+			.scene{ float:left; width:600px; text-align: center; }
+			.scene_1{ padding-top:125px; }
+			.scene_2,.scene_3,.scene_4{ padding-top:60px; }
+		}
+		&.active_scene1{
+			.scene_number .number.number_1{ background-image: url(../img/intro-number/number_1_active.png); }
+			.scene_number .number.number_2{ background-image: url(../img/intro-number/number_2.png); }
+			.scene_number .number.number_3{ background-image: url(../img/intro-number/number_3.png); }
+			.scene_number .number.number_4{ background-image: url(../img/intro-number/number_4.png); }
+			.scene_number{ left:260px; }
+			.sceneWrapper{ left:0; }
+		}
+		&.active_scene2{
+			.scene_number .number.number_1{ background-image: url(../img/intro-number/number_1.png); }
+			.scene_number .number.number_2{ background-image: url(../img/intro-number/number_2_active.png); }
+			.scene_number .number.number_3{ background-image: url(../img/intro-number/number_3.png); }
+			.scene_number .number.number_4{ background-image: url(../img/intro-number/number_4.png); }
+			.scene_number{ left:200px; }
+			.sceneWrapper{ left:-1*600px; }
+		}
+		&.active_scene3{
+			.scene_number .number.number_1{ background-image: url(../img/intro-number/number_1.png); }
+			.scene_number .number.number_2{ background-image: url(../img/intro-number/number_2.png); }
+			.scene_number .number.number_3{ background-image: url(../img/intro-number/number_3_active.png); }
+			.scene_number .number.number_4{ background-image: url(../img/intro-number/number_4.png); }
+			.scene_number{ left:110px; }
+			.sceneWrapper{ left:-2*600px; }
+		}
+		&.active_scene4{
+			.scene_number .number.number_1{ background-image: url(../img/intro-number/number_1.png); }
+			.scene_number .number.number_2{ background-image: url(../img/intro-number/number_2.png); }
+			.scene_number .number.number_3{ background-image: url(../img/intro-number/number_3.png); }
+			.scene_number .number.number_4{ background-image: url(../img/intro-number/number_4_active.png); }
+			.scene_number{ left:30px; }
+			.sceneWrapper{ left:-3*600px; }
 		}
 	}
 	&.game{ 

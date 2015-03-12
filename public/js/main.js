@@ -1,6 +1,6 @@
 var sm = new SectionManager({
 	sections: {
-		intro: new SectionBase({ el: $('.section.intro') }),
+		intro: new introBase({ el: $('.section.intro') }),
 		ready: new ReadyBase({ el: $('.section.ready') }),
 		game: new GameBase({ el: $('.section.game') }),
 		result: new ResultBase({ el: $('.section.result') })

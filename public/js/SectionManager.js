@@ -125,12 +125,16 @@ var introBase;
         sceneInterval: null,
         currentScene: 0,
         fadeOut: function(pCallback){
+            var _el = this.get('el');
             this.endScene();
-            SectionBase.prototype.fadeOut.call(_this, pCallback);
+            SectionBase.prototype.fadeOut.call(this, function(){
+                _el.removeClass('active_scene1 active_scene2 active_scene3 active_scene4').addClass('active_scene1');
+                if(pCallback) pCallback();
+            });
         },
         fadeIn: function(pCallback){
             this.startScene();
-            SectionBase.prototype.fadeIn.call(_this, pCallback);
+            SectionBase.prototype.fadeIn.call(this, pCallback);
         },
         startScene: function(){
             var _this = this;
@@ -148,6 +152,3 @@ var introBase;
     });
 
 })(jQuery);
-
-
-

@@ -10,7 +10,7 @@ var sm = new SectionManager({
 var max= { x: 40.985033055684625, y: 25.01647041258421 };
 var min =  { x: -20.488619542804322, y: -25.21522610937548 };
 // var socket = io.connect('http://10.0.1.2:3000');
-var socket = io.connect('http://192.168.1.61:3000');
+var socket = io.connect('http://127.0.0.1:3000');
 var ratio = {};
 	ratio.x = (max.x + Math.abs(min.x)) / 8;
 	ratio.y = (max.y + Math.abs(min.y)) / 8;
@@ -18,7 +18,11 @@ var ratio = {};
 var mode = 'idle';
 var scoreArray = [];
 
-socket.on('position', function (data) {
+socket.on('buttonPress', function() {
+	if(!gameStarted)
+		startGame();
+});
+socket.on('position', function(data) {
 	if(mode == 'game'){
 		var dir = (Math.abs(data.x) > Math.abs(data.y)) ? 'x' : 'y';
 		var level = Math.floor(Math.abs(data[dir]) / ratio[dir]) + 1;
@@ -58,7 +62,10 @@ var getTotalScore = function(){
 	return Math.floor((score / scoreArray.length) * 100);
 };
 
-$('.section.intro').on('click', function(){
+var gameStarted = false;
+
+var startGame = function(){
+	gameStarted = true;
 	window.scoreArray = [];
 	sm.changeSection('ready', function(){
 		$('.readyCountdown').countdown({
@@ -70,7 +77,7 @@ $('.section.intro').on('click', function(){
 				sm.changeSection('game', function(){
 					window.mode = 'game';
 					$('.gameCountdown').countdown({
-						until: '+30s',
+						until: '+15s',
 						compact: true, 
 						layout: $('#imageLayout').html(),
 						onExpiry: function(){
@@ -84,7 +91,9 @@ $('.section.intro').on('click', function(){
 							sm.changeSection('result', function(){
 								$('.gameCountdown').countdown('destroy');
 								setTimeout(function(){
-									sm.changeSection('intro');
+									sm.changeSection('intro', function(){
+										gameStarted = false;
+									});
 								}, 8000);
 							});
 						}
@@ -93,4 +102,9 @@ $('.section.intro').on('click', function(){
 			}
 		});
 	});
+};
+
+$('.section.intro').on('click', function(){
+	if(!gameStarted)
+		startGame();
 });

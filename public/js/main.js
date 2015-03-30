@@ -7,10 +7,10 @@ var sm = new SectionManager({
 	},
 	active: 'intro'
 });
-var max= { x: 40.985033055684625, y: 25.01647041258421 };
-var min =  { x: -20.488619542804322, y: -25.21522610937548 };
+var max = { x: 35.83206106870229, y: 35.04580152671755 };
+var min =  { x: -35.65648854961832, y: -35.6030534351145 };
 // var socket = io.connect('http://10.0.1.2:3000');
-var socket = io.connect('http://127.0.0.1:3000');
+var socket = io.connect('http://localhost:3000');
 var ratio = {};
 	ratio.x = (max.x + Math.abs(min.x)) / 8;
 	ratio.y = (max.y + Math.abs(min.y)) / 8;

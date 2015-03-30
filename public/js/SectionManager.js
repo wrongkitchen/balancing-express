@@ -56,7 +56,7 @@ var introBase;
             SectionBase.prototype.fadeIn.call(_this, function(){
                 _el.find('.readyTxt').css({ top: "55px" });
                 _el.find('.readyCountdown').show();
-                _el.find('.readyBottom').css({ bottom: "0" });
+                _el.find('.readyBottom').css({ right: "0" });
                 if(pCallback) pCallback();
             });
         },
@@ -65,7 +65,7 @@ var introBase;
             var _el = _this.get('el');
             _el.find('.readyTxt').animate({ top: "-150px" });
             _el.find('.readyCountdown').fadeOut();
-            _el.find('.readyBottom').animate({ bottom: "-500px" }, function(){
+            _el.find('.readyBottom').animate({ right: "-609px" }, function(){
                 _el.fadeOut(0, function(){
                     $(this).removeClass('active');
                     if(pCallback) pCallback();
@@ -82,7 +82,7 @@ var introBase;
             var _el = _this.get('el');
             _el.find('.mainTitle').animate({ top: "-150px" });
             _el.find('.gameCountdown').fadeOut(function(){
-                _el.find('.content').animate({ bottom: "-725px" }, function(){
+                _el.find('.content').animate({ right: "-811px" }, function(){
                     _el.fadeOut(0, function(){
                         $(this).removeClass('active');
                         if(pCallback) pCallback();
@@ -95,7 +95,7 @@ var introBase;
             var _el = _this.get('el');
             _el.fadeIn(function(){
                 _el.find('.mainTitle').animate({ top: "55px" });
-                _el.find('.content').animate({ bottom: "0px" }, function(){
+                _el.find('.content').animate({ right: "0px" }, function(){
                     _el.find('.gameCountdown').fadeIn();
                     _el.addClass('active');
                     if(pCallback) pCallback();

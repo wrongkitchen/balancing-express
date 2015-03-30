@@ -7,25 +7,36 @@ var sm = new SectionManager({
 	},
 	active: 'intro'
 });
-var max = { x: 35.83206106870229, y: 35.04580152671755 };
-var min =  { x: -35.65648854961832, y: -35.6030534351145 };
+var max = {x: 40.45110861199078, y: 35.24720242731452};
+var min =  {x: -34.21204067493303, y: -26.105010320114967};
 // var socket = io.connect('http://10.0.1.2:3000');
-var socket = io.connect('http://localhost:3000');
-var ratio = {};
-	ratio.x = (max.x + Math.abs(min.x)) / 8;
-	ratio.y = (max.y + Math.abs(min.y)) / 8;
+var socket = io.connect('http://192.168.1.125:3000');
 
 var mode = 'idle';
 var scoreArray = [];
+var gameTime = 30;
 
 socket.on('buttonPress', function() {
-	if(!gameStarted)
+	if(!gameStarted){
 		startGame();
+	} else if(gameCounterInst) {
+		var timeArray = gameCounterInst.countdown('getTimes');
+		if(timeArray){
+			var time = timeArray[timeArray.length - 1];
+			if(time > gameTime - 5){
+				restartGame();
+			}
+		}
+	}
 });
 socket.on('position', function(data) {
 	if(mode == 'game'){
 		var dir = (Math.abs(data.x) > Math.abs(data.y)) ? 'x' : 'y';
-		var level = Math.floor(Math.abs(data[dir]) / ratio[dir]) + 1;
+		// var level = Math.floor(Math.abs(data[dir]) / ratio[dir]) + 1;
+		var ratio = (data[dir] > 0) ? max[dir] / 4 : Math.abs(min[dir]) / 4;
+		var level = Math.floor(Math.abs(data[dir]) / ratio);
+			level += 1;
+		console.log(level);
 		$('.rig').removeClass('level1 level2 level3 level4').addClass('level' + ((level > 4) ? '4' : level));
 		scoreArray.push(level);
 	} else if(mode == 'setting'){
@@ -41,8 +52,6 @@ var setMaxMin = function(){
 	mode = 'setting';
 	setTimeout(function(){
 		mode = 'game';
-		ratio.x = (max.x + Math.abs(min.x)) / 8;
-		ratio.y = (max.y + Math.abs(min.y)) / 8;
 		showCurrentMaxMin();
 	}, 8000);
 };
@@ -63,6 +72,15 @@ var getTotalScore = function(){
 };
 
 var gameStarted = false;
+var gameCounterInst = false;
+
+var restartGame = function(){
+	window.gameCounterInst.countdown('destroy');
+	sm.changeSection('intro', function(){
+		gameStarted = false;
+		gameCounterInst = false;
+	});
+};
 
 var startGame = function(){
 	gameStarted = true;
@@ -76,8 +94,8 @@ var startGame = function(){
 				$('.readyCountdown').countdown('destroy');
 				sm.changeSection('game', function(){
 					window.mode = 'game';
-					$('.gameCountdown').countdown({
-						until: '+15s',
+					window.gameCounterInst = $('.gameCountdown').countdown({
+						until: '+' + window.gameTime + 's',
 						compact: true, 
 						layout: $('#imageLayout').html(),
 						onExpiry: function(){

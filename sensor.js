@@ -93,9 +93,9 @@ socket.on('connect', function() {
     console.log('Sensor IO connected');
     var interval = setInterval(function(){
 		// getPosition(function(pPos){
-			socket.emit('sensor-position', sensor.readSync().gyro);
+			socket.emit('sensor-position', sensor.readSync().rotation);
 		// });
-	}, 1000);
+	}, 100);
 });
 
 process.on('SIGTERM',function(){

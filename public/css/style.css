@@ -7,8 +7,8 @@ body {
   overflow: hidden; }
 
 .wrapper {
-  width: 600px;
-  height: 1024px;
+  width: 1024px;
+  height: 600px;
   background-image: url(../img/balancing-bg.jpg);
   position: relative;
   margin: 0 auto;
@@ -27,19 +27,19 @@ body {
   .section.result {
     background-image: url(../img/result-bg.jpg); }
   .section.ready .readyTxt {
-    width: 100%;
+    width: 211px;
     height: 119px;
     position: absolute;
     background-image: url(../img/ready-txt.png);
     background-repeat: no-repeat;
     background-position: center center;
     top: 55px;
-    left: 0; }
+    left: 30px; }
   .section.ready .readyBottom {
-    width: 100%;
-    height: 487px;
-    bottom: 0;
-    left: 0;
+    width: 609px;
+    height: 100%;
+    top: 0;
+    right: 0;
     position: absolute;
     background-image: url(../img/ready-bg.png);
     background-position: center center;
@@ -48,7 +48,7 @@ body {
     position: relative;
     background-image: url(../img/balancing-intro-bg.png);
     background-repeat: no-repeat;
-    background-position: center bottom; }
+    background-position: center center; }
     .section.intro .scene_number, .section.intro .sceneWrapper {
       -webkit-transition: left 500ms ease-in-out;
       -moz-transition: left 500ms ease-in-out;
@@ -57,8 +57,10 @@ body {
       transition: left 500ms ease-in-out; }
     .section.intro .scene_number {
       position: absolute;
-      top: 300px;
-      left: 260px; }
+      top: 60px;
+      left: 0;
+      width: 100%;
+      text-align: center; }
       .section.intro .scene_number .number {
         display: inline-block;
         width: 45px;
@@ -71,17 +73,15 @@ body {
     .section.intro .sceneWrapper {
       width: 400%;
       position: absolute;
-      top: 370px; }
+      top: 150px; }
       .section.intro .sceneWrapper .container {
         position: relative; }
       .section.intro .sceneWrapper .scene {
         float: left;
-        width: 600px;
+        width: 1024px;
         text-align: center; }
-      .section.intro .sceneWrapper .scene_1 {
-        padding-top: 125px; }
-      .section.intro .sceneWrapper .scene_2, .section.intro .sceneWrapper .scene_3, .section.intro .sceneWrapper .scene_4 {
-        padding-top: 60px; }
+      .section.intro .sceneWrapper .scene_1, .section.intro .sceneWrapper .scene_2, .section.intro .sceneWrapper .scene_3, .section.intro .sceneWrapper .scene_4 {
+        padding-top: 30px; }
     .section.intro.active_scene1 .scene_number .number.number_1 {
       background-image: url(../img/intro-number/number_1_active.png); }
     .section.intro.active_scene1 .scene_number .number.number_2 {
@@ -91,7 +91,7 @@ body {
     .section.intro.active_scene1 .scene_number .number.number_4 {
       background-image: url(../img/intro-number/number_4.png); }
     .section.intro.active_scene1 .scene_number {
-      left: 260px; }
+      left: 120px; }
     .section.intro.active_scene1 .sceneWrapper {
       left: 0; }
     .section.intro.active_scene2 .scene_number .number.number_1 {
@@ -103,9 +103,9 @@ body {
     .section.intro.active_scene2 .scene_number .number.number_4 {
       background-image: url(../img/intro-number/number_4.png); }
     .section.intro.active_scene2 .scene_number {
-      left: 200px; }
+      left: 60px; }
     .section.intro.active_scene2 .sceneWrapper {
-      left: -600px; }
+      left: -1024px; }
     .section.intro.active_scene3 .scene_number .number.number_1 {
       background-image: url(../img/intro-number/number_1.png); }
     .section.intro.active_scene3 .scene_number .number.number_2 {
@@ -115,9 +115,9 @@ body {
     .section.intro.active_scene3 .scene_number .number.number_4 {
       background-image: url(../img/intro-number/number_4.png); }
     .section.intro.active_scene3 .scene_number {
-      left: 110px; }
+      left: -30px; }
     .section.intro.active_scene3 .sceneWrapper {
-      left: -1200px; }
+      left: -2048px; }
     .section.intro.active_scene4 .scene_number .number.number_1 {
       background-image: url(../img/intro-number/number_1.png); }
     .section.intro.active_scene4 .scene_number .number.number_2 {
@@ -127,9 +127,9 @@ body {
     .section.intro.active_scene4 .scene_number .number.number_4 {
       background-image: url(../img/intro-number/number_4_active.png); }
     .section.intro.active_scene4 .scene_number {
-      left: 30px; }
+      left: -120px; }
     .section.intro.active_scene4 .sceneWrapper {
-      left: -1800px; }
+      left: -3072px; }
   .section.game {
     position: relative; }
     .section.game .contains {
@@ -137,23 +137,25 @@ body {
       width: 100%;
       height: 100%; }
     .section.game .mainTitle {
-      width: 100%;
-      height: 119px;
+      width: 304px;
+      height: 94px;
       background-image: url(../img/balancing-title.png);
+      left: 30px;
       position: absolute;
       top: -150px;
       background-repeat: no-repeat;
       background-position: center center; }
     .section.game .content {
-      width: 600px;
-      height: 725px;
+      width: 811px;
+      height: 600px;
       position: absolute;
-      bottom: -725px;
+      bottom: 0;
+      right: -811px;
       background-image: url(../img/balancing-content-bg.png); }
     .section.game .rig {
       position: absolute;
-      bottom: 40px;
-      left: 56px;
+      top: 75px;
+      left: 225px;
       width: 485px;
       height: 485px;
       background-image: url(../img/rig.png); }
@@ -189,29 +191,32 @@ body {
         opacity: 1; }
     .section.game .gameCountdown {
       position: absolute;
-      width: 100%;
+      width: 380px;
       height: 265px;
       top: 205px;
       background-image: url(../img/timer-bg.png);
-      background-position: center bottom;
+      background-position: 30px bottom;
       background-repeat: no-repeat;
       z-index: 10;
       display: none; }
 
 .scoreContain {
   position: absolute;
-  width: 100%;
+  width: 545px;
   height: 265px;
-  top: 340px;
+  top: 184px;
   z-index: 10; }
   .scoreContain .level {
     position: absolute;
-    width: 100%;
+    width: 690px;
     height: 74px;
     background-position: center center;
-    top: 230px;
+    top: 365px;
     left: 0;
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    zoom: .8; }
+  .scoreContain .level5 {
+    background-image: url(../img/resule-level1.png); }
   .scoreContain .level4 {
     background-image: url(../img/resule-level1.png); }
   .scoreContain .level3 {
@@ -256,16 +261,16 @@ body {
 
 .readyCountdown {
   position: absolute;
-  top: 240px;
-  left: 0;
+  top: 215px;
+  left: 30px;
   text-align: center;
   height: 222px;
-  width: 100%; }
+  width: 393px; }
   .readyCountdown .image {
     display: block;
     width: 100%;
     height: 100%;
-    background-position: center center;
+    background-position: left center;
     background-repeat: no-repeat; }
     .readyCountdown .image.image0 {
       background-image: url(../img/ready-number/go.png); }

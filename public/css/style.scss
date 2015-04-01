@@ -1,4 +1,8 @@
 body { margin:0; padding:0; background: #000; width:100%; height:100%; overflow:hidden; }
+.demo{ 
+	width:1024px; height:600px; background-image: url(../img/speed_v3.png); background-repeat: no-repeat; 
+	position: absolute; top:0; left:0; z-index:999; display: none;
+}
 .wrapper{ 
 	width:1024px; height:600px; background-image:url(../img/balancing-bg.jpg); position:relative; margin:0 auto; 
 	overflow: hidden;
@@ -23,7 +27,9 @@ body { margin:0; padding:0; background: #000; width:100%; height:100%; overflow:
 	}
 	&.intro{
 		position:relative;
-		background-image: url(../img/balancing-intro-bg.png); background-repeat: no-repeat;
+		// background-image: url(../img/balancing-intro-bg.png); 
+		background-color: #f7da52;
+		background-repeat: no-repeat;
 		background-position: center center;
 		.scene_number, .sceneWrapper{
 			-webkit-transition: left 500ms ease-in-out;
@@ -43,10 +49,47 @@ body { margin:0; padding:0; background: #000; width:100%; height:100%; overflow:
 		.sceneWrapper{ 
 			width:400%; position:absolute; top:150px;
 			.container{ position:relative }
-			.scene{ float:left; width:1024px; text-align: center; }
-			// .scene_1{ padding-top:125px; }
+			.scene{ 
+				float:left; width:1024px; height:440px; text-align: center;  
+				background-repeat: no-repeat; padding-top:10px; position:relative;
+				img{ position:relative; z-index:1; }
+				.animation, .arrowDown{ position:absolute; left:50%; z-index:0; }
+				&.scene_1 .arrowDown{
+					width:162px; height:231px; background-image: url(../img/arrow.gif);
+					bottom: 10px; margin-left: -81px;
+					&.status1{ background-position: 0 0; }
+					&.status2, &.status10{ background-position: -162px 0; }
+					&.status3, &.status9{ background-position: -162px*2 0; }
+					&.status4, &.status8{ background-position: -162px*3 0; }
+					&.status5, &.status7{ background-position: -162px*4 0; }
+					&.status6{ background-position: -162px*5 0; }
+				}
+				&.scene_2 .animation{ 
+					width:550px; height:300px; background-image: url(../img/feetonboard.gif);
+					bottom: 0; margin-left: -275px;
+					&.status1{ background-position: 0 0; }
+					&.status2, &.status10{ background-position: -550px 0; }
+					&.status3, &.status9{ background-position: -550px*2 0; }
+					&.status4, &.status8{ background-position: -550px*3 0; }
+					&.status5, &.status7{ background-position: -550px*4 0; }
+					&.status6{ background-position: -550px*5 0; }
+				}
+				&.scene_3 .animation{ 
+					width:550px; height:300px; background-image: url(../img/feetonboardwobble.gif);
+					bottom: 0; margin-left: -275px;
+					&.status1{ background-position: 0 0; }
+					&.status2, &.status10{ background-position: -550px 0; }
+					&.status3, &.status9{ background-position: -550px*2 0; }
+					&.status4, &.status8{ background-position: -550px*3 0; }
+					&.status5, &.status7{ background-position: -550px*4 0; }
+					&.status6{ background-position: -550px*5 0; }
+				}
+				&.scene_4 .resultHand{
+					width:614px; height:275px; background-image: url(../img/result-hand.png);
+					bottom: 0; margin-left: -307px; position:absolute; left:50%; z-index:0;
+				}
+			}
 			// .scene_2,.scene_3,.scene_4{ padding-top:60px; }
-			.scene_1,.scene_2,.scene_3,.scene_4{ padding-top:30px; }
 		}
 		&.active_scene1{
 			.scene_number .number.number_1{ background-image: url(../img/intro-number/number_1_active.png); }

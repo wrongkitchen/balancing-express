@@ -6,6 +6,17 @@ body {
   height: 100%;
   overflow: hidden; }
 
+.demo {
+  width: 1024px;
+  height: 600px;
+  background-image: url(../img/speed_v3.png);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: none; }
+
 .wrapper {
   width: 1024px;
   height: 600px;
@@ -46,7 +57,7 @@ body {
     background-repeat: no-repeat; }
   .section.intro {
     position: relative;
-    background-image: url(../img/balancing-intro-bg.png);
+    background-color: #f7da52;
     background-repeat: no-repeat;
     background-position: center center; }
     .section.intro .scene_number, .section.intro .sceneWrapper {
@@ -79,9 +90,81 @@ body {
       .section.intro .sceneWrapper .scene {
         float: left;
         width: 1024px;
-        text-align: center; }
-      .section.intro .sceneWrapper .scene_1, .section.intro .sceneWrapper .scene_2, .section.intro .sceneWrapper .scene_3, .section.intro .sceneWrapper .scene_4 {
-        padding-top: 30px; }
+        height: 440px;
+        text-align: center;
+        background-repeat: no-repeat;
+        padding-top: 10px;
+        position: relative; }
+        .section.intro .sceneWrapper .scene img {
+          position: relative;
+          z-index: 1; }
+        .section.intro .sceneWrapper .scene .animation, .section.intro .sceneWrapper .scene .arrowDown {
+          position: absolute;
+          left: 50%;
+          z-index: 0; }
+        .section.intro .sceneWrapper .scene.scene_1 .arrowDown {
+          width: 162px;
+          height: 231px;
+          background-image: url(../img/arrow.gif);
+          bottom: 10px;
+          margin-left: -81px; }
+          .section.intro .sceneWrapper .scene.scene_1 .arrowDown.status1 {
+            background-position: 0 0; }
+          .section.intro .sceneWrapper .scene.scene_1 .arrowDown.status2, .section.intro .sceneWrapper .scene.scene_1 .arrowDown.status10 {
+            background-position: -162px 0; }
+          .section.intro .sceneWrapper .scene.scene_1 .arrowDown.status3, .section.intro .sceneWrapper .scene.scene_1 .arrowDown.status9 {
+            background-position: -324px 0; }
+          .section.intro .sceneWrapper .scene.scene_1 .arrowDown.status4, .section.intro .sceneWrapper .scene.scene_1 .arrowDown.status8 {
+            background-position: -486px 0; }
+          .section.intro .sceneWrapper .scene.scene_1 .arrowDown.status5, .section.intro .sceneWrapper .scene.scene_1 .arrowDown.status7 {
+            background-position: -648px 0; }
+          .section.intro .sceneWrapper .scene.scene_1 .arrowDown.status6 {
+            background-position: -810px 0; }
+        .section.intro .sceneWrapper .scene.scene_2 .animation {
+          width: 550px;
+          height: 300px;
+          background-image: url(../img/feetonboard.gif);
+          bottom: 0;
+          margin-left: -275px; }
+          .section.intro .sceneWrapper .scene.scene_2 .animation.status1 {
+            background-position: 0 0; }
+          .section.intro .sceneWrapper .scene.scene_2 .animation.status2, .section.intro .sceneWrapper .scene.scene_2 .animation.status10 {
+            background-position: -550px 0; }
+          .section.intro .sceneWrapper .scene.scene_2 .animation.status3, .section.intro .sceneWrapper .scene.scene_2 .animation.status9 {
+            background-position: -1100px 0; }
+          .section.intro .sceneWrapper .scene.scene_2 .animation.status4, .section.intro .sceneWrapper .scene.scene_2 .animation.status8 {
+            background-position: -1650px 0; }
+          .section.intro .sceneWrapper .scene.scene_2 .animation.status5, .section.intro .sceneWrapper .scene.scene_2 .animation.status7 {
+            background-position: -2200px 0; }
+          .section.intro .sceneWrapper .scene.scene_2 .animation.status6 {
+            background-position: -2750px 0; }
+        .section.intro .sceneWrapper .scene.scene_3 .animation {
+          width: 550px;
+          height: 300px;
+          background-image: url(../img/feetonboardwobble.gif);
+          bottom: 0;
+          margin-left: -275px; }
+          .section.intro .sceneWrapper .scene.scene_3 .animation.status1 {
+            background-position: 0 0; }
+          .section.intro .sceneWrapper .scene.scene_3 .animation.status2, .section.intro .sceneWrapper .scene.scene_3 .animation.status10 {
+            background-position: -550px 0; }
+          .section.intro .sceneWrapper .scene.scene_3 .animation.status3, .section.intro .sceneWrapper .scene.scene_3 .animation.status9 {
+            background-position: -1100px 0; }
+          .section.intro .sceneWrapper .scene.scene_3 .animation.status4, .section.intro .sceneWrapper .scene.scene_3 .animation.status8 {
+            background-position: -1650px 0; }
+          .section.intro .sceneWrapper .scene.scene_3 .animation.status5, .section.intro .sceneWrapper .scene.scene_3 .animation.status7 {
+            background-position: -2200px 0; }
+          .section.intro .sceneWrapper .scene.scene_3 .animation.status6 {
+            background-position: -2750px 0; }
+        .section.intro .sceneWrapper .scene.scene_4 .resultHand {
+          width: 614px;
+          height: 275px;
+          background-image: url(../img/result-hand.png);
+          bottom: 0;
+          margin-left: -307px;
+          position: absolute;
+          left: 50%;
+          z-index: 0; }
     .section.intro.active_scene1 .scene_number .number.number_1 {
       background-image: url(../img/intro-number/number_1_active.png); }
     .section.intro.active_scene1 .scene_number .number.number_2 {
@@ -289,5 +372,3 @@ body {
 
 a {
   color: #000; }
-
-/*# sourceMappingURL=style.css.map */

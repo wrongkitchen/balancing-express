@@ -1,0 +1,35 @@
+#! /bin/sh
+
+ 
+# change this to wherever your node app lives # 
+path_to_node_app=/home/pi/step/
+ 
+# Carry out specific functions when asked to by the system
+case "$1" in
+  start)
+    echo "* starting node-server * "
+    #echo "* starting node-server * [`date`]" >> /var/log/node-server.log
+    #xset s off
+        #xset -dpms
+        #xset s noblank
+   export DISPLAY=:0.0
+   # cd $path_to_node_app
+   # /usr/local/bin/npm start     
+        sleep 60s
+        #epiphany-browser http://localhost:3000
+        while [ TRUE ]; do
+         chromium --kiosk  --incognito http://127.0.0.1:3000
+        done
+    ;;
+  stop)
+    echo "* stopping node-server * "
+    #echo "* stopping node-server * [`date`]" >> /var/log/node-server.log
+    killall /usr/local/bin/node
+    ;;
+  *)
+    echo "Usage: /etc/init.d/node-server {start|stop}"
+    exit 1
+    ;;
+esac
+ 
+#exit 0

@@ -7,14 +7,13 @@ var sm = new SectionManager({
 	},
 	active: 'intro'
 });
-var max = {x: 40.45110861199078, y: 35.24720242731452};
-var min =  {x: -34.21204067493303, y: -26.105010320114967};
-// var socket = io.connect('http://10.0.1.2:3000');
-var socket = io.connect('http://192.168.1.125:3000');
+var max = {x: 35.45110861199078, y: 30.24720242731452};
+var min =  {x: -29.21204067493303, y: -21.105010320114967};
+var socket = io.connect('http://localhost:3000');
 
 var mode = 'idle';
 var scoreArray = [];
-var gameTime = 30;
+var gameTime = 15;
 
 socket.on('buttonPress', function() {
 	if(!gameStarted){
@@ -36,7 +35,6 @@ socket.on('position', function(data) {
 		var ratio = (data[dir] > 0) ? max[dir] / 4 : Math.abs(min[dir]) / 4;
 		var level = Math.floor(Math.abs(data[dir]) / ratio);
 			level += 1;
-		console.log(level);
 		$('.rig').removeClass('level1 level2 level3 level4').addClass('level' + ((level > 4) ? '4' : level));
 		scoreArray.push(level);
 	} else if(mode == 'setting'){

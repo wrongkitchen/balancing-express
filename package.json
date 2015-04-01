@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "sudo node app.js"
+    "start": "node app.js & node sensor.js &"
   },
   "dependencies": {
     "express": "~4.10.6",

@@ -124,6 +124,7 @@ var introBase;
     introBase = SectionBase.extend({
         sceneInterval: null,
         currentScene: 0,
+        introAnimation: null,
         fadeOut: function(pCallback){
             var _el = this.get('el');
             this.endScene();
@@ -139,6 +140,7 @@ var introBase;
         startScene: function(){
             var _this = this;
             var _el = _this.get('el');
+            _this.introAnimation = _this.startIntroAnimation();
             _this.sceneInterval = setInterval(function(){
                 _el.removeClass('active_scene1 active_scene2 active_scene3 active_scene4');
                 _el.addClass('active_scene' + ((_this.currentScene % $('.intro .scene').length) + 1));
@@ -148,6 +150,19 @@ var introBase;
         endScene: function(){
             clearInterval(this.sceneInterval);
             this.currentScene = 0;
+        },
+        startIntroAnimation: function(){
+            var _this = this;
+            var arrowCounter = 0;
+            var arrowInterval = setInterval(function(){
+                if(!_this.sceneAnimating){
+                    arrowCounter += 1;
+                    $('.arrowDown').removeClass('status1 status2 status3 status4 status5 status6 status7 status8 status9 status10').addClass('status' + ((arrowCounter % 10) + 1));
+                    $('.animation').removeClass('status1 status2 status3 status4 status5 status6 status7 status8 status9 status10').addClass('status' + ((arrowCounter % 6) + 1));
+                }
+            }, 100);
+
+            return arrowInterval;
         }
     });
 
